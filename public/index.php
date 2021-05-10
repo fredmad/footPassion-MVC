@@ -1,3 +1,21 @@
+<?php
+require "../vendor/autoload.php";
+
+use Entity\Links;
+use Entity\Users;
+
+$user1 = new Users(1, "FredMad", "Fred0201!");
+
+$link1 = new Links(1, "Liverpool - Milan AC", "« Le miracle d’Istanbul »", "La finale de la Ligue des champions 2005, qui demeure l’un des plus grands si ce n’est LE plus grand match que cette compétition ait connu. Ce Liverpool - AC Milan restera est la plus belle finale de l’histoire de la C1, tant le scénario du match fut un véritable ascenseur émotionnel.", "https://editorial.uefa.com/resources/0254-0e8ee4c04620-de66d7d1ccd9-1000/format/square1/steven_gerrard_led_liverpool_s_dramatic_comeback_in_the_uefa_champions_league_final.jpeg", "https://www.youtube.com/watch?v=hG4LvyfYVXI&ab_channel=RMCSport", "2021-05-10 15:00:00", $user1);
+$link2 = new Links(2, "Barcelone - PSG", "« La Remontada »", "Nous présentons d'ores et déjà nos excuses aux supporters parisiens pour ce qui va suivre mais il était difficile - pour ne pas dire impossible - de ne pas inclure la fameuse « Remontada » dans ce top. Tout a été dit ou presque sur ce huitième de finale qui fut le théâtre du plus incroyable renversement de situation de l'histoire de la compétition.", "https://medias.lequipe.fr/img-photo-jpg/-l-r-samuel-umtiti-of-fc-barcelona-sergi-roberto-of-fc-barcelona-andre-gomes-of-fc-barcelona-ger/1500000000891455/0:0,2496:1664-650-400-75/9feaf.jpg", "https://www.youtube.com/watch?v=h4m68r8kWAc&ab_channel=FCBarcelona", "2021-05-10 15:00:00", $user1);
+$link3 = new Links(3, "Liverpool - Barcelone", "« La Remontada n°2»", "Encore une histoire de remontada ! Le Barça se retrouve dans le rôle de la victime, crucifiée par un boureau nommé Liverpool, en demi-finale de l'édition 2019. Tout avait pourtant bien commencé pour les coéquipiers de Lionel Messi ! Les Catalans remportent en effet le match aller (3-0). Mais rien ne va se passer comme prévu 6 jours plus tard à Anfield !", "https://photo.maxifoot.fr/georginio-wijnaldum-2.jpg", "https://www.youtube.com/watch?v=01F9N7GeDMg&ab_channel=RMCSport", "2021-05-10 15:00:00", $user1);
+$link4 = new Links(4, "Real Madrid - Atlético", "« La Decima »", "Certains regretteront probablement la présence de la finale de l'édition 2014 dans ce top, mais l'égalisation tardive des Madrilènes au bout du temps additionnel, reste l'un des plus incroyables comebacks de l'histoire de la Ligue des champions. Ce match a connu en effet un final époustouflant que les supporters du Real ne sont pas prêts d'oublier.", "https://secure.static.goal.com/410600/410655_hp.jpg", "https://www.youtube.com/watch?v=9XfuxIvcQEw&feature=emb_imp_woyt&ab_channel=UEFA", "2021-05-10 15:00:00", $user1);
+$link5 = new Links(5, "Tottenham - Ajax", "« Un miracle signé Lucas »", "L'ancien parisien, auteur d'un triplé, a en effet connu son jour de gloire lors de cette demi-finale incroyable disputée à l'ArenA d'Amsterdam. Il faut dire que, dès le tirage au sort, la perspective de voir l'Ajax, équipe frisson de cette édition 2019, se mesurer aux hommes de Pochettino et leur football attrayant en faisait saliver plus d'un.", "https://www.leparisien.fr/resizer/NUtKdaSZ-2hLLty1fcVMjwgAX-Q=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/LWK36LKQ4WT65J5HLVLJ5HB7AQ.jpg", "https://www.youtube.com/watch?v=n05oIoU73Wg&feature=emb_imp_woyt&ab_channel=RMCSport", "2021-05-10 15:00:00", $user1);
+
+$items = [$link1, $link2, $link3, $link4, $link5];
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -105,108 +123,27 @@
         </section>
         <section id="post-row" class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="wrap">
-                        <div class="tile">
-                            <img src='images/Remontada.jpg' />
-                            <div class="text">
-                                <h1>Barcelone Vs PSG.</h1>
-                                <h2 class="animate-text">La Remontada !</h2>
-                                <p class="animate-text">&nbsp;</p>
-                                <div class="dots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
+                <?php
+                foreach ($items as $oneItem) {
+                ?>
+                    <div class="col-lg-4 col-md-6">
+                        <a href="<?= $oneItem->urlLink ?>" target="_blank">
+                            <div class="wrap">
+                                <div class="tile">
+                                    <img src='<?= $oneItem->urlImage ?>' />
+                                    <div class="text">
+                                        <h3><?= $oneItem->title ?></h3>
+                                        <h4 class="animate-text"><?= $oneItem->shortDesc ?></h4>
+                                        <p class="animate-text"><?= $oneItem->longDesc ?></br>
+                                        Posté par @<?= $oneItem->userId->username ?></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="wrap">
-                        <div class="tile">
-                            <img src='images/Remontada.jpg' />
-                            <div class="text">
-                                <h1>Barcelone Vs PSG.</h1>
-                                <h2 class="animate-text">La Remontada !</h2>
-                                <p class="animate-text">&nbsp;</p>
-                                <div class="dots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="wrap">
-                        <div class="tile">
-                            <img src='images/Remontada.jpg' />
-                            <div class="text">
-                                <h1>Barcelone Vs PSG.</h1>
-                                <h2 class="animate-text">La Remontada !</h2>
-                                <p class="animate-text">&nbsp;</p>
-                                <div class="dots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="wrap">
-                        <div class="tile">
-                            <img src='images/Remontada.jpg' />
-                            <div class="text">
-                                <h1>Barcelone Vs PSG.</h1>
-                                <h2 class="animate-text">La Remontada !</h2>
-                                <p class="animate-text">&nbsp;</p>
-                                <div class="dots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="wrap">
-                        <div class="tile">
-                            <img src='images/Remontada.jpg' />
-                            <div class="text">
-                                <h1>Barcelone Vs PSG.</h1>
-                                <h2 class="animate-text">La Remontada !</h2>
-                                <p class="animate-text">&nbsp;</p>
-                                <div class="dots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="wrap">
-                        <div class="tile">
-                            <img src='images/Remontada.jpg' />
-                            <div class="text">
-                                <h1>Barcelone Vs PSG.</h1>
-                                <h2 class="animate-text">La Remontada !</h2>
-                                <p class="animate-text">&nbsp;</p>
-                                <div class="dots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </section>
     </main>
