@@ -2,6 +2,9 @@
 
 namespace Entity;
 
+use Entity\Users;
+use ludk\Utils\Serializer;
+
 class Links
 {
     public $id;
@@ -12,18 +15,7 @@ class Links
     public $urlLink;
     public $createdAt;
     public Users $userId;
-
-    public function __construct($id, $title, $shortDesc, $longDesc, $urlImage, $urlLink, $createdAt, $userId)
-    {
-        $this->id = $id;
-        $this->title = $title;
-        $this->shortDesc = $shortDesc;
-        $this->longDesc = $longDesc;
-        $this->urlImage = $urlImage;
-        $this->urlLink = $urlLink;
-        $this->createdAt = $createdAt;
-        $this->userId = $userId;
-    }
+    use Serializer;
 }
 
 ?>
