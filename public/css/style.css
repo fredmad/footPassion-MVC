@@ -1,13 +1,32 @@
-body {
-  background-color: #eee;
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.wrap {
-  margin: 50px auto 0 auto;
+body {
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+}
+
+body, nav {
+  background-color: darkseagreen;
+}
+
+header img {
+  background-repeat: no-repeat;
+  background-position: center;
   width: 100%;
-  display: flex;
-  align-items: space-around;
-  max-width: 1200px;
+}
+
+nav a, nav form, h1, label, button, .newPost, footer {
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'Cabin Sketch', cursive;
+}
+
+nav a, nav form, h1{
+  font-weight: 700;
 }
 
 .tile {
@@ -50,7 +69,6 @@ body {
 
 .tile h2 {
   font-weight: 100;
-  /* margin: 20px 0 0 0; */
   margin: 0;
   font-style: italic;
   transform: translateX(200px);
@@ -81,48 +99,6 @@ body {
 .tile:hover .animate-text {
   transform: translateX(0);
   opacity: 1;
-}
-
-.dots {
-  position: absolute;
-  bottom: 20px;
-  right: 30px;
-  margin: 0 auto;
-  width: 30px;
-  height: 30px;
-  color: currentColor;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.dots span {
-  width: 5px;
-  height: 5px;
-  background-color: currentColor;
-  border-radius: 50%;
-  display: block;
-  opacity: 0;
-  transition: transform 0.4s ease-out, opacity 0.5s ease;
-  transform: translateY(30px);
-}
-
-.tile:hover span {
-  opacity: 1;
-  transform: translateY(0px);
-}
-
-.dots span:nth-child(1) {
-  transition-delay: 0.05s;
-}
-
-.dots span:nth-child(2) {
-  transition-delay: 0.1s;
-}
-
-.dots span:nth-child(3) {
-  transition-delay: 0.15s;
 }
 
 @media (max-width: 1000px) {
