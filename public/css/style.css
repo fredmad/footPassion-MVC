@@ -19,14 +19,28 @@ header img {
   width: 100%;
 }
 
-nav a, nav form, h1, label, button, .newPost, footer {
+nav a, nav form, nav p, h1, label, button, .newPost, footer {
   text-align: center;
   vertical-align: middle;
   font-family: 'Cabin Sketch', cursive;
 }
 
-nav a, nav form, h1{
+nav a, nav form, nav p, h1{
   font-weight: 700;
+}
+
+nav a, nav form, nav p {
+  color : rgba(255,255,255) !important;
+}
+
+/* nav a {
+  margin-right: 0 !important;
+} */
+
+nav p {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 0 !important;
 }
 
 .tile {

@@ -32,12 +32,20 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav d-flex justify-content-center align-items-center">
                     <?php
                     if (isset($_SESSION['user'])) {
                     ?>
-                        <li class="nav-item mx-2">
+                        <li class="nav-item ml-2">
                             <a class="nav-link btn-lg" href="?action=logout" role="button" type="submit">LogOut</a>
+                        </li>
+                        <li class="nav-item">
+                            <p>/</p>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <p>
+                                <?= $_SESSION['user']->username ?>
+                            </p>
                         </li>
                     <?php
                     } else {
