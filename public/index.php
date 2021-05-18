@@ -1,7 +1,7 @@
 <?php
 
-use Entity\Links;
-use Entity\Users;
+use Entity\Link;
+use Entity\User;
 use ludk\Persistence\ORM;
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -9,8 +9,8 @@ require __DIR__ . '/../vendor/autoload.php';
 session_start();
 
 $orm = new ORM(__DIR__ . '/../Resources');
-$linkRepo = $orm->getRepository(Links::class);
-$userRepo = $orm->getRepository(Users::class);
+$linkRepo = $orm->getRepository(Link::class);
+$userRepo = $orm->getRepository(User::class);
 
 $manager = $orm->getManager();
 
@@ -36,7 +36,7 @@ switch ($action) {
             if ($errorMsg) {
                 include "../templates/registerForm.php";
             } else {
-                $newUser = new Users();
+                $newUser = new User();
                 $newUser->username = $_POST['username'];
                 $newUser->password = $_POST['password'];
                 $manager->persist($newUser);
@@ -81,7 +81,7 @@ switch ($action) {
             if ($errorMsg) {
                 include "../templates/postForm.php";
             } else {
-                $newlink = new Links();
+                $newlink = new Link();
                 $newlink->title = $_POST['title'];
                 $newlink->shortDesc = $_POST['shortDesc'];
                 $newlink->longDesc = $_POST['longDesc'];

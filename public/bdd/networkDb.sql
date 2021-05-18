@@ -1,10 +1,10 @@
-CREATE TABLE `users` (
+CREATE TABLE `user` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `username` varchar(255),
   `password` varchar(255)
 );
 
-CREATE TABLE `links` (
+CREATE TABLE `link` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `title` varchar(255),
   `short_desc` text,
@@ -15,4 +15,4 @@ CREATE TABLE `links` (
   `userId` int
 );
 
-ALTER TABLE `links` ADD FOREIGN KEY (`userId`) REFERENCES `users` (`id`);
+ALTER TABLE `link` ADD FOREIGN KEY (`userId`) REFERENCES `user` (`id`);

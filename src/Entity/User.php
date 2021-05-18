@@ -4,7 +4,7 @@ namespace Entity;
 
 use ludk\Utils\Serializer;
 
-class Users
+class User
 {
     public $id;
     public $username;

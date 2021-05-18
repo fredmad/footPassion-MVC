@@ -2,10 +2,10 @@
 
 namespace Entity;
 
-use Entity\Users;
+use Entity\User;
 use ludk\Utils\Serializer;
 
-class Links
+class Link
 {
     public $id;
     public $title;
@@ -14,7 +14,7 @@ class Links
     public $urlImage;
     public $urlLink;
     public $createdAt;
-    public Users $userId;
+    public User $userId;
     use Serializer;
 }
 
