@@ -22,9 +22,9 @@
 
     <!-- Main navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow">
-        <div class="container py-1">
-            <a class="navbar-brand" href="?action=display">
-                <img src="images/PassionFoot_logo.svg" width="30" height="30" class="d-inline-block align-top" alt="logo de foot">
+        <div class="container d-flex justify-content-center align-items-center py-1">
+            <a class="navbar-brand" href="/display">
+                <img src="images/PassionFoot_logo.svg" width="30" height="30" class="d-inline-block" alt="logo de foot">
                 FootPassion
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,29 +32,29 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav d-flex justify-content-center align-items-center">
+                <ul class="navbar-nav d-flex justify-content-center align-items-center connect">
                     <?php
                     if (isset($_SESSION['user'])) {
                     ?>
-                        <li class="nav-item ml-2">
-                            <a class="nav-link btn-lg" href="?action=logout" role="button" type="submit">LogOut</a>
-                        </li>
-                        <li class="nav-item">
-                            <p>/</p>
-                        </li>
                         <li class="nav-item mx-2">
                             <p>
-                                <?= $_SESSION['user']->username ?>
+                                Vous êtes connecté en tant que : <?= $_SESSION['user']->username ?>
                             </p>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <p>-</p>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/logout" role="button" type="submit">LogOut</a>
                         </li>
                     <?php
                     } else {
                     ?>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link btn-lg" href="?action=login" role="button" type="submit">LogIn</a>
+                        <li class="nav-item pl-2">
+                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/login" role="button" type="submit">LogIn</a>
                         </li>
-                        <li class="nav-item mx-2">
-                            <a class="nav-link btn-lg" href="?action=register" role="button" type="submit">SignUp</a>
+                        <li class="nav-item px-2">
+                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/register" role="button" type="submit">SignUp</a>
                         </li>
                     <?php
                     }
@@ -64,7 +64,7 @@
                     <li class="nav-item">
                         <form class="form-inline" method="get" action="/search">
                             <input class="form-control mr-sm-2" type="text" name="search" aria-label="Search" placeholder="Rechercher sur le blog ..." value="<?= $_GET['search'] ?? "" ?>"></input>
-                            <button class="btn btn-outline-light" type="submit">Rechercher</button>
+                            <button class="btn btn-outline-light myBtn py-1 px-2" type="submit">Rechercher</button>
                         </form>
                     </li>
                 </ul>
@@ -93,7 +93,7 @@
                                 <h2 class="h3">Vous-voulez ajouter un match à cette liste ?</h2>
                             </li>
                             <li class="d-flex justify-content-center">
-                                <a class="nav-link btn btn-primary btn-lg" href="?action=new" role="button" type="submit">Ajouter un match</a>
+                                <a class="nav-link btn btn-primary btn-lg" href="/new" role="button" type="submit">Ajouter un match</a>
                             </li>
                         </ul>
                     </div>

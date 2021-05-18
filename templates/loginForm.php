@@ -20,37 +20,38 @@
 
 <body>
 
-    <!-- MAIN NAVIGATION -->
+    <!-- Main navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow">
-        <div class="container py-1">
-            <a class="navbar-brand" href="?action=display">
-                <img src="images/PassionFoot_logo.svg" width="30" height="30" class="d-inline-block align-top" alt="logo de foot">
+        <div class="container d-flex justify-content-center align-items-center py-1">
+            <a class="navbar-brand" href="/display">
+                <img src="images/PassionFoot_logo.svg" width="30" height="30" class="d-inline-block" alt="logo de foot">
                 FootPassion
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav d-flex justify-content-center align-items-center">
-                <?php
-                if (isset($_SESSION['user'])) {
-                ?>
-                    <li class="nav-item ml-2">
-                        <a class="nav-link btn-lg" href="?action=logout" role="button" type="submit">LogOut</a>
-                    </li>
-                    <li class="nav-item">
-                        <p>/</p>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <p>
-                            <?= $_SESSION['user']->username ?>
-                        </p>
-                    </li>
-                <?php
-                }
-                ?>
-            </ul>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex justify-content-center align-items-center connect">
+                    <?php
+                    if (isset($_SESSION['user'])) {
+                    ?>  
+                        <li class="nav-item mx-2">
+                            <p>
+                                Vous êtes connecté en tant que : <?= $_SESSION['user']->username ?>
+                            </p>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <p>-</p>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/logout" role="button" type="submit">LogOut</a>
+                        </li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -58,7 +59,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-5">
-                    <form class="form-signin" method="POST" action="?action=login">
+                    <form class="form-signin" method="POST" action="/login">
                     <h1 class="form-signin-heading text-center">Heureux de vous revoir !</h1>
                     <?php
                     if (isset($errorMsg)) {
@@ -74,7 +75,7 @@
         </div>          
     </main>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer class="bg-dark text-light fixed-bottom">
         <div class="container">
             <div class="row justify-content-center pt-3 pb-0">

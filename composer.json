@@ -1,7 +1,8 @@
 {
     "autoload": {
         "classmap": [
-            "src/Entity/"
+            "src/Entity/",
+            "src/Controller/"
         ]
     },
     "require": {
