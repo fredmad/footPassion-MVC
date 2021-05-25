@@ -45,7 +45,7 @@
                             <p>-</p>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/logout" role="button" type="submit">LogOut</a>
+                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/logout" role="button" type="submit">Se déconnecter</a>
                         </li>
                     <?php
                     }
@@ -68,7 +68,7 @@
                     ?>
                     <input type="text" class="form-control my-2" name="username" placeholder="Username" required="" autofocus="" />
                     <input type="password" class="form-control my-2" name="password" placeholder="Password" required="" />
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
                     </form>
                 </div>
             </div>

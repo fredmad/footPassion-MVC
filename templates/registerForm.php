@@ -45,7 +45,7 @@
                             <p>-</p>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/logout" role="button" type="submit">LogOut</a>
+                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/logout" role="button" type="submit">Se déconnecter</a>
                         </li>
                     <?php
                     }

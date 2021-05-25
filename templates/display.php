@@ -45,16 +45,16 @@
                             <p>-</p>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/logout" role="button" type="submit">LogOut</a>
+                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/logout" role="button" type="submit">Se déconnecter</a>
                         </li>
                     <?php
                     } else {
                     ?>
                         <li class="nav-item pl-2">
-                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/login" role="button" type="submit">LogIn</a>
+                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/login" role="button" type="submit">Se connecter</a>
                         </li>
                         <li class="nav-item px-2">
-                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/register" role="button" type="submit">SignUp</a>
+                            <a class="btn-lg btn btn-outline-light py-1 px-2" href="/register" role="button" type="submit">S'inscrire</a>
                         </li>
                     <?php
                     }
