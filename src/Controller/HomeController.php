@@ -2,24 +2,26 @@
 
 namespace Controller;
 
-use Entity\Link;
 use Entity\User;
-use ludk\Persistence\ORM;
+use Entity\Link;
+use ludk\Http\Request;
+use ludk\Http\Response;
+use ludk\Controller\AbstractController;
 
-class HomeController
+class HomeController extends AbstractController
 {
-    public function Display()
+    public function Display(Request $request): Response
     {
-        $orm = new ORM(__DIR__ . '/../Resources');
-        $linkRepo = $orm->getRepository(Link::class);
-        $userRepo = $orm->getRepository(User::class);
+        $userRepo = $this->getOrm()->getRepository(User::class);
+        $linkRepo = $this->getOrm()->getRepository(Link::class);
         
-        $links = [];
-        if (isset($_GET['search'])) {
-            $searchElement = $_GET['search'];
+        $links = array();
+        if ($request->query->has('search')) {
+            $searchElement = $request->query->get('search');
             if (strpos($searchElement, "@") === 0) {
                 $userName = substr($searchElement, 1);
                 $users = $userRepo->findBy(array("username" => $userName));
+                
                 if (count($users) == 1) {
                     $links = $linkRepo->findBy(array("userId" => $users[0]->id));
                     }
@@ -29,6 +31,9 @@ class HomeController
         } else {
             $links = $linkRepo->findAll();
         }
-        include "../templates/display.php";
+        $data = array(
+            "links" => $links
+        );
+        return $this->render('display.php', $data);
     }
 }

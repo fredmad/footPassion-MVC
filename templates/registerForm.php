@@ -15,7 +15,7 @@
     <!-- Icon -->
     <link rel="shortcut icon" href="images/PassionFoot_logo.svg">
 
-    <title>FootPassion</title>
+    <title>{{title_head}}</title>
 </head>
 
 <body>

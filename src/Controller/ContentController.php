@@ -3,39 +3,41 @@
 namespace Controller;
 
 use Entity\Link;
-use ludk\Persistence\ORM;
+use ludk\Http\Request;
+use ludk\Http\Response;
+use ludk\Controller\AbstractController;
 
-class ContentController
+class ContentController extends AbstractController
 {
-    public function Create()
+    public function Create(Request $request): Response
     {
-        $orm = new ORM(__DIR__ . '/../Resources');
-        $linkRepo = $orm->getRepository(Link::class);
-
-        $manager = $orm->getManager();
+        $manager = $this->getOrm()->getManager();
         
-        if (isset($_SESSION['user']) && isset($_POST['title']) && isset($_POST['shortDesc']) && isset($_POST['longDesc']) && isset($_POST['urlImage']) && isset($_POST['urlLink'])) {
+        if ($request->request->has('user') && $request->request->has('title') && $request->request->has('shortDesc') && $request->request->has('longDesc') && $request->request->has('urlImage') && $request->request->has('urlLink')) {
             $errorMsg = NULL;
-            if (empty($_POST['title']) || empty($_POST['shortDesc']) || empty($_POST['longDesc']) || empty($_POST['urlImage']) || empty($_POST['urlLink'])) {
-                $errorMsg = "Not all fields have been completed. Please fill in all the blanks.";
+            if (empty($request->request->has('user')) || empty($request->request->has('title')) || empty($request->request->has('shortDesc')) || empty($request->request->has('longDesc')) || empty($request->request->has('urlImage')) || empty($request->request->has('urlLink'))) {
+                $errorMsg = "Tous les champs n'ont pas étés remplis. Merci de remplir tous les champs.";
             }
             if ($errorMsg) {
-                include "../templates/postForm.php";
+                $data = array(
+                    "errorMsg" => $errorMsg
+                );
+                return $this->render('postForm.php', $data);
             } else {
                 $newlink = new Link();
-                $newlink->title = $_POST['title'];
-                $newlink->shortDesc = $_POST['shortDesc'];
-                $newlink->longDesc = $_POST['longDesc'];
-                $newlink->urlImage = $_POST['urlImage'];
-                $newlink->urlLink = $_POST['urlLink'];
+                $newlink->title = $request->request->get("title");
+                $newlink->shortDesc = $request->request->get("shortdesc");
+                $newlink->longDesc = $request->request->get("longDesc");
+                $newlink->urlImage = $request->request->get("urlImage");
+                $newlink->urlLink = $request->request->get("urlLink");
                 $newlink->createdAt = date("Y-m-d H:i:s");
-                $newlink->userId = $_SESSION['user'];
+                $newlink->userId = $request->getSession()->get('user');
                 $manager->persist($newlink);
                 $manager->flush();
-                header('Location:/display');
+                return $this->redirectToRoute('display');
             }
         } else {
-            include "../templates/postForm.php";
+            return $this->render('postForm.php');
         }
     }
 }
