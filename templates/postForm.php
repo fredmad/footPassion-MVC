@@ -59,7 +59,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-5">
-                    <form class="form-signin" method="POST" action="/new">
+                    <form class="form-signin" method="POST" action="/post">
                     <h1 class="form-signin-heading text-center">Partager un match !</h1>
                     <?php
                     if (isset($errorMsg)) {

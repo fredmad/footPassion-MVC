@@ -93,7 +93,7 @@
                                 <h2 class="h3">Vous-voulez ajouter un match à cette liste ?</h2>
                             </li>
                             <li class="d-flex justify-content-center">
-                                <a class="nav-link btn btn-primary btn-lg" href="/new" role="button" type="submit">Ajouter un match</a>
+                                <a class="nav-link btn btn-primary btn-lg" href="/post" role="button" type="submit">Ajouter un match</a>
                             </li>
                         </ul>
                     </div>
@@ -108,16 +108,22 @@
                 <?php
                 foreach ($links as $oneLink) {
                 ?>
-                    <div class="col col-lg-6">
+                    <div class="link col col-lg-6">
                         <a href="<?= $oneLink->urlLink ?>" target="_blank">
                             <div class="d-flex justify-content-center">
                                 <div class="tile my-4">
                                     <img src='<?= $oneLink->urlImage ?>' />
                                     <div class="text">
                                         <h3><?= $oneLink->title ?></h3>
-                                        <h4 class="animate-text"><?= $oneLink->shortDesc ?></h4>
-                                        <p class="animate-text"><?= $oneLink->longDesc ?><br>
-                                            Posté par @<?= $oneLink->userId->username ?></p>
+                                        <h4 class="h5 animate-text"><?= $oneLink->shortDesc ?></h4>
+                                        <p class="animate-text">
+                                            <?= $oneLink->longDesc ?>
+                                        </p>
+                                        <p class="animate-text">
+                                            <a href="?search=@<?= $oneLink->userId->username ?>">
+                                                Posté par @<?= $oneLink->userId->username ?>
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

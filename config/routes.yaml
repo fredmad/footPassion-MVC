@@ -22,6 +22,6 @@ register:
   path: /register
   controller: Controller\AuthController:register
   
-create:
-  path: /new
-  controller: Controller\ContentController:create
+post:
+  path: /post
+  controller: Controller\ContentController:post

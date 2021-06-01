@@ -47,6 +47,11 @@ nav p {
   font-size: 1.25rem;
 }
 
+.link a {
+  color: white;
+  text-decoration: none;
+}
+
 .tile {
   width: 380px;
   height: 380px;

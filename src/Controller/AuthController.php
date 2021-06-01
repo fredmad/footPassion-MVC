@@ -12,12 +12,12 @@ class AuthController extends AbstractController
     public function Login(Request $request): Response
     {
         $userRepo = $this->getOrm()->getRepository(User::class);
-        
+
         if ($request->request->has('username') && $request->request->has('password')) {
             $users = $userRepo->findBy(array("username" => $request->request->get("username")));
             if (count($users) == 1) {
-                $oneuser = $users[0];
-                if ($oneuser->password != ($request->request->get("password"))) {
+                $oneUser = $users[0];
+                if ($oneUser->password != ($request->request->get("password"))) {
                     return $this->render('loginForm.php', array("errorMsg" => "Il y a une erreur sur votre mot de passe."));
                 } else {
                     $request->getSession()->set('user', $users[0]);
@@ -32,7 +32,7 @@ class AuthController extends AbstractController
     }
 
     public function Logout(Request $request): Response
-    {        
+    {
         if ($request->getSession()->has('user')) {
             $request->getSession()->remove('user');
         }
@@ -43,19 +43,19 @@ class AuthController extends AbstractController
     {
         $userRepo = $this->getOrm()->getRepository(User::class);
         $manager = $this->getOrm()->getManager();
-        
+
         if ($request->request->has('username') && $request->request->has('password') && $request->request->has('passwordRetype')) {
             $errorMsg = NULL;
             $users = $userRepo->findBy(array("username" => $request->request->get("username")));
 
             if (count($users) > 0) {
                 $errorMsg = "Username déjà utilisé.";
-            } else if ($request->request->has('password') != $request->request->has('passwordRetype')) {
-                $errorMsg = "Les mots de passe sont différents.";
-            } else if (strlen(trim($request->request->has('password'))) < 8) {
-                $errorMsg = "Votre mot de passe doit contenir au moins 8 caractères.";
-            } else if (strlen(trim($request->request->has('username'))) < 4) {
+            } else if (strlen(trim($request->request->get('username'))) < 4) {
                 $errorMsg = "Votre username doit contenir au moins 4 caractères.";
+            } else if (strlen(trim($request->request->get('password'))) < 8) {
+                $errorMsg = "Votre mot de passe doit contenir au moins 8 caractères.";
+            } else if ($request->request->get('password') != $request->request->get('passwordRetype')) {
+                $errorMsg = "Les mots de passe sont différents.";
             }
             if ($errorMsg) {
                 $data = array(
