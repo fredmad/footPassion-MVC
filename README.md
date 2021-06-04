@@ -129,4 +129,4 @@ They are **loaded in memory into the user session** so you can add data, delete,
 
 ## What does it look like?
 
-[TEST](public/images/footPassionHeader.png)
+[Home](screenshot_home.png)
