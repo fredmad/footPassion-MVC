@@ -136,7 +136,7 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer class="bg-dark text-light sticky-bottom">
         <div class="container">
             <div class="row justify-content-center pt-3 pb-0">

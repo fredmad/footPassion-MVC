@@ -55,6 +55,7 @@
         </div>
     </nav>
 
+    <!-- Main content -->
     <main>
         <div class="container">
             <div class="row">
