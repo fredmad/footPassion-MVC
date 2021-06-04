@@ -129,4 +129,7 @@ They are **loaded in memory into the user session** so you can add data, delete,
 
 ## What does it look like?
 
-[Home](screenshot_home.png)
+![screenshot_home](screenshot_home.png)
+![screenshot_login](screenshot_login.png)
+![screenshot_register](screenshot_register.png)
+![screenshot_new](screenshot_post.png)
